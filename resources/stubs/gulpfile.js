@@ -23,7 +23,7 @@ elixir.extend('generate_docs', function() {
         return gulp.src('').pipe(
             shell([
                 'sleep 0.2',
-                'php documentarian generate'
+                'documentarian generate'
             ], {
                 cwd: path.resolve(process.cwd(), '..')
             })
