@@ -1,0 +1,33 @@
+{
+  "name": "mpociot/documentarian",
+  "description": "",
+  "keywords": [],
+  "license": "Apache 2",
+  "authors": [
+    {
+      "name": "Marcel Pociot",
+      "email": "m.pociot@gmail.com"
+    }
+  ],
+  "autoload": {
+    "files": [
+      "includes/helpers.php"
+    ],
+    "psr-4": {
+      "Mpociot\\Documentarian\\": "src/"
+    }
+  },
+  "bin": [
+    "documentarian"
+  ],
+  "require": {
+    "php": ">=5.5.9",
+    "mnapoli/silly": "~1.0",
+    "illuminate/view": "^5.2",
+    "mnapoli/front-yaml": "^1.5",
+    "windwalker/renderer": "2.*"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^5.1"
+  }
+}
