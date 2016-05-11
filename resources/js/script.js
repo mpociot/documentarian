@@ -31,9 +31,9 @@
     $(".lang-selector a").removeClass('active');
     $(".lang-selector a[data-language-name='" + language + "']").addClass('active');
     for (var i=0; i < languages.length; i++) {
-      $(".highlight." + languages[i]).parent().hide();
+      $("code.language-" + languages[i]).parent().hide();
     }
-    $(".highlight." + language).parent().show();
+    $("code.language-" + language).parent().show();
 
     global.toc.calculateHeights();
 
