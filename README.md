@@ -17,7 +17,7 @@ The documentation is available at [http://marcelpociot.com/documentarian/install
 Since both Documentarian and Slate use regular markdown files to render the API documentation, your existing Slate API documentation should work just fine. If you encounter any issues, please [submit an issue](https://github.com/mpociot/documentarian/issues).
 
 ### In depth documentation
-For further documentation, read the [Slate Wiki](https://github.com/tripit/slate/wiki).
+For further documentation, read the [documentation](http://marcelpociot.com/documentarian/installation).
 
 ### Documentations built with Documentarian
 
