@@ -20,9 +20,9 @@ class Documentarian
      */
     public function config($folder, $key = null)
     {
-        $config = include($folder . '/source/config.php' );
+        $config = include($folder . '/source/config.php');
 
-        return is_null($key) ? $config : array_get($config,$key);
+        return is_null($key) ? $config : array_get($config, $key);
     }
 
     /**
@@ -61,7 +61,7 @@ class Documentarian
      * Generate the API documentation using the markdown and include files
      *
      * @param $folder
-     * @return bool
+     * @return false|null
      */
     public function generate($folder)
     {
