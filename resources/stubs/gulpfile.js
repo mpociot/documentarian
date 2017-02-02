@@ -36,8 +36,8 @@ elixir.extend('generate_docs', function() {
 
 elixir(function(mix) {
     mix.scripts([
-        'lib/energize.js',
         'lib/jquery.min.js',
+        'lib/energize.js',
         'lib/imagesloaded.min.js',
         'lib/highlight.min.js',
         'lib/jquery.highlight.js',
