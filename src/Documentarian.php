@@ -92,7 +92,8 @@ class Documentarian
 
         $output = $renderer->render('index', [
             'page' => $frontmatter,
-            'content' => $html
+            'content' => $html,
+            'folder' => str_replace('public', null, $folder)
         ]);
 
         file_put_contents($folder . '/index.html', $output);
