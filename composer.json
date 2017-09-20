@@ -22,7 +22,7 @@
   ],
   "require": {
     "php": ">=5.5.9",
-    "mnapoli/silly": "~1.0",
+    "mnapoli/silly": "1.5.1",
     "illuminate/view": "5.*",
     "mnapoli/front-yaml": "^1.5",
     "windwalker/renderer": "3.*"
