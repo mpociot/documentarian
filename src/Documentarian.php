@@ -2,6 +2,7 @@
 
 namespace Mpociot\Documentarian;
 
+use Illuminate\Support\Arr;
 use Mni\FrontYAML\Parser;
 use Windwalker\Renderer\BladeRenderer;
 
@@ -22,7 +23,7 @@ class Documentarian
     {
         $config = include($folder . '/source/config.php');
 
-        return is_null($key) ? $config : array_get($config, $key);
+        return is_null($key) ? $config : Arr::get($config, $key);
     }
 
     /**
