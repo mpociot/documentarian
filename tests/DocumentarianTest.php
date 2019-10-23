@@ -1,7 +1,8 @@
 <?php
 
-use Illuminate\Support\Collection;
 use Mpociot\Documentarian\Documentarian;
+use Mpociot\Documentarian\DocumentarianServiceProvider;
+use Orchestra\Testbench\TestCase;
 
 function glob_recursive($pattern, $flags = 0)
 {
@@ -14,15 +15,22 @@ function glob_recursive($pattern, $flags = 0)
     return $files;
 }
 
-
-class DocumentarianTest extends PHPUnit_Framework_TestCase
+class DocumentarianTest extends TestCase
 {
-
-    public function tearDown()
+    protected function tearDown()
     {
         exec('rm -rf ' . __DIR__ . '/output');
         mkdir(__DIR__ . '/output');
         touch(__DIR__ . '/output/.gitkeep');
+
+        parent::tearDown();
+    }
+
+    protected function getPackageProviders($app)
+    {
+        return [
+            DocumentarianServiceProvider::class,
+        ];
     }
 
     public function test_creates_documentation_folder_and_copies_assets()
@@ -120,7 +128,7 @@ class DocumentarianTest extends PHPUnit_Framework_TestCase
 
         $documentarian = new Documentarian();
         $documentarian->create($outputDir);
-        
+
         $this->assertTrue(is_array($documentarian->config($outputDir)));
         $this->assertEquals('git', $documentarian->config($outputDir, 'deployment.type'));
         $this->assertEquals('gh-pages', $documentarian->config($outputDir, 'deployment.branch'));

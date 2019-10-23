@@ -4,7 +4,6 @@ namespace Mpociot\Documentarian;
 
 use Illuminate\Support\Arr;
 use Mni\FrontYAML\Parser;
-use Windwalker\Renderer\BladeRenderer;
 
 /**
  * Class Documentarian
@@ -79,8 +78,6 @@ class Documentarian
         $frontmatter = $document->getYAML();
         $html = $document->getContent();
 
-        $renderer = new BladeRenderer([__DIR__ . '/../resources/views'], ['cache_path' => $source_dir . '/_tmp']);
-
         // Parse and include optional include markdown files
         if (isset($frontmatter['includes'])) {
             foreach ($frontmatter['includes'] as $include) {
@@ -91,10 +88,9 @@ class Documentarian
             }
         }
 
-        $output = $renderer->render('index', [
-            'page' => $frontmatter,
-            'content' => $html
-        ]);
+        $output = view('documentarian::index')
+            ->with('page', $frontmatter)
+            ->with('content', $html);
 
         file_put_contents($folder . '/index.html', $output);
 
@@ -102,5 +98,4 @@ class Documentarian
         rcopy($source_dir . '/assets/images/', $folder . '/images');
         rcopy($source_dir . '/assets/stylus/fonts/', $folder . '/css/fonts');
     }
-
 }

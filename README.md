@@ -27,6 +27,13 @@ Since both Documentarian and Slate use regular markdown files to render the API 
 ### In depth documentation
 For further documentation, read the [documentation](http://marcelpociot.de/documentarian/installation).
 
+### Customising views
+Blade templates are provided for this package. To customise these templates you may publish these templates into
+your project's resource folder, then modify them as necessary:
+
+* Run `php artisan vendor:publish --provider="Mpociot\Documentarian\DocumentarianServiceProvider"`
+* Modify templates in `resources/views/vendor/documentarian`
+
 ### Documentations built with Documentarian
 
 Feel free to submit a PR with a link to your documentation.
