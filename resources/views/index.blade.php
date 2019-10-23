@@ -27,7 +27,7 @@
       </span>
     </a>
     <div class="tocify-wrapper">
-        <img src="images/logo.png" />
+        <img src="images/logo.png" class="page-logo" alt="{{$page['title']}}" />
         @if(isset($page['language_tabs']))
             <div class="lang-selector">
                 @foreach($page['language_tabs'] as $lang)
