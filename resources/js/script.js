@@ -151,6 +151,11 @@
   }
 
   function slugify(text){
+    if (/[^\x01-\x7E\xA1-\xDF]/.test(text)) {
+      // If the text contains multibyte characters, do nothing
+      return text.toString();
+    }
+
     return text.toString().toLowerCase()
         .replace(/\s+/g, '-')           // Replace spaces with -
         .replace(/[^\w\-]+/g, '')       // Remove all non-word chars
