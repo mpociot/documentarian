@@ -35,6 +35,15 @@
                 @endforeach
             </div>
         @endif
+        @if(isset($page['api_versions']))
+            <div>
+                <select id="select" class="version-select">
+                    @foreach($page['api_versions'] as $version)
+                        <option value="{{$version['link']}}"><b>{{$version['nome']}}</b></option>
+                    @endforeach
+                </select>
+            </div>
+        @endif
         @if(isset($page['search']))
             <div class="search">
               <input type="text" class="search" id="input-search" placeholder="Search">
