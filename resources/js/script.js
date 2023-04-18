@@ -163,7 +163,14 @@
   $(function() {
 
     $('h1, h2').each(function(){
-      $(this).prop('id', slugify($(this).text()));
+      let id = slugify($(this).text());
+      let qtd = $(this).prevAll('#' + id).length;
+
+      if (qtd > 0) {
+        id = id + '-' + qtd;
+      }
+
+      $(this).prop("id", id)
     });
 
     $(".lang-selector a").on("click", function() {
